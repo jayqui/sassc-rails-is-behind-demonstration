@@ -1,0 +1,16 @@
+@use "sass:math";
+
+@mixin inset-divider-offset($offset, $padding) {
+  $divider-offset: (2 * $padding) + $offset;
+  @debug "divider offset: #{$divider-offset}";
+  @debug (1/2); // prints fine
+  // @debug math.div(1, 2); // does not print fine
+
+  margin-left: $divider-offset;
+  width: calc(100% - #{$divider-offset});
+}
+
+.my-h1 {
+  background-color: blue;
+  font-size: 200px/2px;
+}
